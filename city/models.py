@@ -1,7 +1,7 @@
 from pymongo import IndexModel, ASCENDING
 from umongo import Document, fields
 
-from app import MetaBaseTemplate
+from ..app import MetaBaseTemplate
 
 
 class City(Document, metaclass=MetaBaseTemplate):
@@ -11,6 +11,7 @@ class City(Document, metaclass=MetaBaseTemplate):
     name = fields.StringField(required=True)
     count_journeys = fields.IntegerField(required=True, missing=0)
     count_articles = fields.IntegerField(required=True, missing=0)
+    point = fields.ListField(fields.DictField, required=True)
 
     class Meta:
         indexes = [IndexModel([('code', ASCENDING),

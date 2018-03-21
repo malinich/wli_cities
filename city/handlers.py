@@ -1,9 +1,9 @@
 import pymongo
 import tornado
 
-from city.models import City
-from handlers import BaseHandler
-from utils import Routers
+from .models import City
+from ..handlers import BaseHandler
+from ..utils import Routers
 
 
 @Routers("/")
